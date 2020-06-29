@@ -1,0 +1,10 @@
+#HighScores {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Timer {
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 px 20px 0 px 0px;
+}
