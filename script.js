@@ -25,33 +25,71 @@ function () {
 }
 
 setTime();
+// Scores
+
+var score = 0;
 
 // Question Object
 
 var questions = {
-  "What kind of brackets enclose an array?": [
+  "question1": [
   "Curly",
   "Square",
   "Angled",
   "Squiggly" ],
 
-  "What does CSS stand for?": [
+  "question2": [
   "Cascading Style Sheets",
   "Computer Science Styles",
   "Crashing Style Sheets",
   "Creative Styling Sections"],
 
-  "Which of the following cannot be an object?": [
+  "question3": [
   "Array",
   "Boolean",
   "Prototypes",
   "Method"],
 
-  "A web browser generally seeks what kind of named page first?": [
+  "question4": [
   "Index",
   "About Me",
   "Home",
   "Return"],
 
-  "NULL and UNDEFINED have the same meaning.": false,
+  "question5": false,
 }
+
+if (question1[1]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question2[0]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question3[2]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question4[0]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question5 = false) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
