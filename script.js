@@ -18,68 +18,71 @@ function startGame() {
   var score = 0;
 
   var questions = {
-    "question1": [
-      "Curly",
-      "Square",
-      "Angled",
-      "Squiggly"],
+    question1: ["Curly", "Square", "Angled", "Squiggly"],
 
-    "question2": [
+    question2: [
       "Cascading Style Sheets",
       "Computer Science Styles",
       "Crashing Style Sections",
-      "Computer Style Selections"],
+      "Computer Style Selections",
+    ],
 
-    "question3": [
-      "Array",
-      "Boolean",
-      "Prototypes",
-      "Method"],
+    question3: ["Array", "Boolean", "Prototypes", "Method"],
 
-    "question4": [
-      "Index",
-      "About Me",
-      "Home",
-      "Return"],
+    question4: ["Index", "About Me", "Home", "Return"],
 
-    "question5": false,
+    question5: false,
   };
 
-if (question1[1]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+  $("#container").html("Question 1: Which brackets are used to enclose an array?");
 
-if (question2[0]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+  if (question1[1]) {
+    score++;
+    alert("Correct! You get one point!");
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft = -10;
+  }
 
-if (question3[2]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+  $("#container").html("Question 2: What does CSS stand for?");
 
-if (question4[0]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+  if (question2[0]) {
+    score++;
+    alert("Correct! You get one point!");
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft = -10;
+  }
 
-if (question5 = false) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+  $("#container").html("Question 3: Which of the following is not an object?");
 
+  if (question3[2]) {
+    score++;
+    alert("Correct! You get one point!");
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft = -10;
+  }
+
+  $("#container").html("Question 4: Which type of page will a web browser generally seek first?");
+
+  if (question4[0]) {
+    score++;
+    alert("Correct! You get one point!");
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft = -10;
+  }
+
+  $("#container").html("Question 5: True or false - NULL and UNDEFINED mean the same thing.");
+
+  if ((question5 = false)) {
+    score++;
+    alert("Correct! You get one point!");
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft = -10;
+  }
 }
 
 // function () {
@@ -88,15 +91,7 @@ if (question5 = false) {
 
 $("#start-button").on("click", function () {
   setTime();
+  startGame();
 });
 
-
-
-
-
-
 // // Question Object
-
-
-
-
