@@ -1,95 +1,96 @@
-var timeEl = document.querySelector(".time");
-var mainEl = document.getElementById("main");
-
-var secondsLeft = 90;
-
 function setTime() {
-  var timerInterval = setInterval(function() {
+  var timeEl = document.querySelector("#timer");
+  var secondsLeft = 90;
+  // console.log("Ok cool");
+
+  var timerInterval = setInterval(function () {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left in game.";
-
-    if(secondsLeft === 0) {
+    timeEl.textContent = secondsLeft;
+    // console.log("Hello world");
+    if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage("Time is up!");
+      alert("Time is up!");
     }
-
   }, 1000);
 }
+$("#start-button").on("click", function () {
+  setTime();
+});
 
-function () {
- 
-}
+// function () {
 
-function () {
+// }
 
-}
+// function () {
 
-setTime();
-// Scores
+// }
 
-var score = 0;
+// setTime();
+// // Scores
 
-// Question Object
+// var score = 0;
 
-var questions = {
-  "question1": [
-  "Curly",
-  "Square",
-  "Angled",
-  "Squiggly" ],
+// // Question Object
 
-  "question2": [
-  "Cascading Style Sheets",
-  "Computer Science Styles",
-  "Crashing Style Sheets",
-  "Creative Styling Sections"],
+// var questions = {
+//   "question1": [
+//   "Curly",
+//   "Square",
+//   "Angled",
+//   "Squiggly" ],
 
-  "question3": [
-  "Array",
-  "Boolean",
-  "Prototypes",
-  "Method"],
+//   "question2": [
+//   "Cascading Style Sheets",
+//   "Computer Science Styles",
+//   "Crashing Style Sheets",
+//   "Creative Styling Sections"],
 
-  "question4": [
-  "Index",
-  "About Me",
-  "Home",
-  "Return"],
+//   "question3": [
+//   "Array",
+//   "Boolean",
+//   "Prototypes",
+//   "Method"],
 
-  "question5": false,
-}
+//   "question4": [
+//   "Index",
+//   "About Me",
+//   "Home",
+//   "Return"],
 
-if (question1[1]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+//   "question5": false,
+// }
 
-if (question2[0]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+// if (question1[1]) {
+//   score++;
+//   alert("Correct! You get one point!");
+// } else {
+//   alert("Incorrect! You lose 10 seconds!");
+//   secondsLeft=-10; }
 
-if (question3[2]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+// if (question2[0]) {
+//   score++;
+//   alert("Correct! You get one point!");
+// } else {
+//   alert("Incorrect! You lose 10 seconds!");
+//   secondsLeft=-10; }
 
-if (question4[0]) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+// if (question3[2]) {
+//   score++;
+//   alert("Correct! You get one point!");
+// } else {
+//   alert("Incorrect! You lose 10 seconds!");
+//   secondsLeft=-10; }
 
-if (question5 = false) {
-  score++;
-  alert("Correct! You get one point!");
-} else {
-  alert("Incorrect! You lose 10 seconds!");
-  secondsLeft=-10; }
+// if (question4[0]) {
+//   score++;
+//   alert("Correct! You get one point!");
+// } else {
+//   alert("Incorrect! You lose 10 seconds!");
+//   secondsLeft=-10; }
+
+// if (question5 = false) {
+//   score++;
+//   alert("Correct! You get one point!");
+// } else {
+//   alert("Incorrect! You lose 10 seconds!");
+//   secondsLeft=-10; }
