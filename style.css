@@ -1,10 +1,27 @@
 #HighScores {
-    float: left;
+    position: relative; 
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #Timer {
     float: right;
+    position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0 px 20px 0 px 0px;
+}
+
+.container {
+    border-width: 5px;
+    border-style: solid;
+    text-align: center;
+    margin: 200px;
+    padding: 30px 0px 50px 0px;
+}
+
+#start-button {
+    font-size: 18px;
+    color: white;
+    border: solid;
+    background-color: darkgreen;
+    padding: 5px;
 }
