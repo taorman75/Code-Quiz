@@ -34,7 +34,11 @@ function startGame() {
     question5: false,
   };
 
-  $("#container").html("Question 1: Which brackets are used to enclose an array?");
+  $("#container").text("Question 1: Which brackets are used to enclose an array?");
+  $("#container").append("<p>", "<button>Curly</button>"); // can I assign array values to these buttons?
+  $("#container").append("<p>", "<button>Square</button>");
+  $("#container").append("<p>", "<button>Angled</button>");
+  $("#container").append("<p>","<button>Squiggly</button>");
 
   if (question1[1]) {
     score++;
@@ -45,6 +49,10 @@ function startGame() {
   }
 
   $("#container").html("Question 2: What does CSS stand for?");
+  $("#container").append("<p>", "<button>Cascading Style Sheets</button>");
+  $("#container").append("<p>", "<button>Computer Science Styles</button>");
+  $("#container").append("<p>", "<button>Crashing Style Sections</button>");
+  $("#container").append("<p>", "<button>Computer Style Selections</button>");
 
   if (question2[0]) {
     score++;
@@ -55,6 +63,10 @@ function startGame() {
   }
 
   $("#container").html("Question 3: Which of the following is not an object?");
+  $("#container").append("<p>", "<button>Array</button>");
+  $("#container").append("<p>", "<button>Boolean</button>");
+  $("#container").append("<p>", "<button>Prototype</button>");
+  $("#container").append("<p>", "<button>Method</button>");
 
   if (question3[2]) {
     score++;
@@ -65,7 +77,11 @@ function startGame() {
   }
 
   $("#container").html("Question 4: Which type of page will a web browser generally seek first?");
-
+  $("#container").append("<p>", "<button>Index</button>");
+  $("#container").append("<p>", "<button>About Me</button>");
+  $("#container").append("<p>", "<button>Home</button>");
+  $("#container").append("<p>", "<button>Return</button>");
+  
   if (question4[0]) {
     score++;
     alert("Correct! You get one point!");
@@ -75,6 +91,9 @@ function startGame() {
   }
 
   $("#container").html("Question 5: True or false - NULL and UNDEFINED mean the same thing.");
+  $("#container").append("<p>", "<button>True</button>");
+  $("#container").append("<p>", "<button>False</button>");
+ 
 
   if ((question5 = false)) {
     score++;
