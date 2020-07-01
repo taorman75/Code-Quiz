@@ -13,84 +13,90 @@ function setTime() {
     }
   }, 1000);
 }
+
+function startGame() {
+  var score = 0;
+
+  var questions = {
+    "question1": [
+      "Curly",
+      "Square",
+      "Angled",
+      "Squiggly"],
+
+    "question2": [
+      "Cascading Style Sheets",
+      "Computer Science Styles",
+      "Crashing Style Sections",
+      "Computer Style Selections"],
+
+    "question3": [
+      "Array",
+      "Boolean",
+      "Prototypes",
+      "Method"],
+
+    "question4": [
+      "Index",
+      "About Me",
+      "Home",
+      "Return"],
+
+    "question5": false,
+  };
+
+if (question1[1]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question2[0]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question3[2]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question4[0]) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+if (question5 = false) {
+  score++;
+  alert("Correct! You get one point!");
+} else {
+  alert("Incorrect! You lose 10 seconds!");
+  secondsLeft=-10; }
+
+}
+
+// function () {
+
+// }
+
 $("#start-button").on("click", function () {
   setTime();
 });
 
-// function () {
 
-// }
 
-// function () {
 
-// }
 
-// setTime();
-// // Scores
-
-// var score = 0;
 
 // // Question Object
 
-// var questions = {
-//   "question1": [
-//   "Curly",
-//   "Square",
-//   "Angled",
-//   "Squiggly" ],
 
-//   "question2": [
-//   "Cascading Style Sheets",
-//   "Computer Science Styles",
-//   "Crashing Style Sheets",
-//   "Creative Styling Sections"],
 
-//   "question3": [
-//   "Array",
-//   "Boolean",
-//   "Prototypes",
-//   "Method"],
 
-//   "question4": [
-//   "Index",
-//   "About Me",
-//   "Home",
-//   "Return"],
-
-//   "question5": false,
-// }
-
-// if (question1[1]) {
-//   score++;
-//   alert("Correct! You get one point!");
-// } else {
-//   alert("Incorrect! You lose 10 seconds!");
-//   secondsLeft=-10; }
-
-// if (question2[0]) {
-//   score++;
-//   alert("Correct! You get one point!");
-// } else {
-//   alert("Incorrect! You lose 10 seconds!");
-//   secondsLeft=-10; }
-
-// if (question3[2]) {
-//   score++;
-//   alert("Correct! You get one point!");
-// } else {
-//   alert("Incorrect! You lose 10 seconds!");
-//   secondsLeft=-10; }
-
-// if (question4[0]) {
-//   score++;
-//   alert("Correct! You get one point!");
-// } else {
-//   alert("Incorrect! You lose 10 seconds!");
-//   secondsLeft=-10; }
-
-// if (question5 = false) {
-//   score++;
-//   alert("Correct! You get one point!");
-// } else {
-//   alert("Incorrect! You lose 10 seconds!");
-//   secondsLeft=-10; }
