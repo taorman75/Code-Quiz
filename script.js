@@ -35,60 +35,69 @@ var questions = [
 var qIndex = 0;
 var rightAnswer = questions[qIndex].answer;
 
+var secondsLeft = 60;
 
 function setTime() {
   
-  var secondsLeft = 60;
+  
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
-    // console.log("Hello world");
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-    alert("Time is up!");
     }
   }, 1000);
 }
 
-// function checkAnswer () {
-//   for ()
-// }
 
-
-// on click event, "this" is going to equal what is clicked; then you can pull value $(this).val();
-function quizStart() {
-var currQuest = questions[qIndex];
+function questionClick (){
+  //console.log(this.value);
   
-  quizIntroEl.classList.add("hide");
+  if (this.value === rightAnswer) {
+    score += 10;
+    alert("Correct! You get ten points!");
+    qIndex++;
+   
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft -= 10;
+    qIndex++;
+    
+  }
+  console.log(qIndex);
+  questionBoxEl.innerHTML = ''
+  getQuestion();
+}
+
+
+function getQuestion() {
+  var currQuest = questions[qIndex];
   // populate the box with Question 1 and choices (which need to be buttons)
   var qTitle = document.createElement("h1");
   qTitle.textContent = questions[qIndex].title;
   questionBoxEl.appendChild(qTitle);
 
-
-  for (i=0; i < questions[qIndex].choices.length; i++) {
-    // debugger;
+  currQuest.choices.forEach(function (i) {
+    console.log(i);
+    
     var ansBtn = document.createElement("button");
-    ansBtn.textContent = questions[qIndex].choices[i];
-    ansBtn.setAttribute("value", questions[qIndex].choices[i]);
-    console.log(questions[qIndex].choices[i]);
+    ansBtn.textContent = i;
+    ansBtn.setAttribute("value", i);
+    ansBtn.setAttribute("class", "answer-button");
     questionBoxEl.appendChild(ansBtn);
-  }
-  ansBtn.onclick(questionClick); // says "ansBtn.onclick is not a function"
-  ansBtn.onclick(console.log("yay"));
-  
+    ansBtn.onclick = questionClick;
+  })
 
+}
+
+
+// on click event, "this" is going to equal what is clicked; then you can pull value $(this).val();
+function quizStart() {
+  quizIntroEl.classList.add("hide");
+  getQuestion();
 }
 // Logic
-function questionClick (){
-  if (questionClick !== rightAnswer) {
-    score+=10;
-    alert("Correct! You get ten points!");
-  } else {
-    alert("Incorrect! You lose 10 seconds!");
-    secondsLeft = -10;
-  }
-}
+
 
 function endGame () {
   document.getElementById("container");
@@ -124,7 +133,6 @@ $("#start-button").on("click", function () {
   setTime();
   quizStart();
 });
-
 
 
 
