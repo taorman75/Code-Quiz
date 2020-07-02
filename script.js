@@ -38,8 +38,6 @@ var qIndex = 0;
 var secondsLeft = 60;
 
 function setTime() {
-  
-  
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
@@ -51,10 +49,10 @@ function setTime() {
 
 
 function questionClick (){
-  //console.log(this.value);
+  
   var rightAnswer = questions[qIndex].answer;
   if (this.value === rightAnswer) {
-    console.log(questions[qIndex].answer);
+    
     
     score += 10;
     alert("Correct! You get ten points!");
@@ -66,14 +64,23 @@ function questionClick (){
     qIndex++;
     
   }
-  console.log(qIndex);
-  questionBoxEl.innerHTML = ''
+  
+  questionBoxEl.innerHTML = "";
   getQuestion();
 }
 
+function endGame () {
+  document.getElementById("question-box");
+  var gameEnd = document.createElement("h1");
+  gameEnd.textContent = "Game Over! Your final score is: " + score;
+  questionBoxEl.appendChild(gameEnd);
+  
+  
+}
 
 function getQuestion() {
   var currQuest = questions[qIndex];
+  if (qIndex < questions.length) {
   // populate the box with Question 1 and choices (which need to be buttons)
   var qTitle = document.createElement("h1");
   qTitle.textContent = questions[qIndex].title;
@@ -89,7 +96,9 @@ function getQuestion() {
     questionBoxEl.appendChild(ansBtn);
     ansBtn.onclick = questionClick;
   })
-
+} else {
+  endGame();
+}
 }
 
 
@@ -101,13 +110,7 @@ function quizStart() {
 // Logic
 
 
-function endGame () {
-  document.getElementById("container");
-  var gameEnd = document.createElement("h1");
-  gameEnd.textContent = "Your final score is:" + score;
-  gameEnd.appendChild("#container");
-  
-}
+
 
 function storeHighScores () {
   var playerName = document.querySelector("#playerName").nodeValue.trim();
