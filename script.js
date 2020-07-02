@@ -79,7 +79,7 @@ var currQuest = questions[qIndex];
   
 
 }
-
+// Logic
 function questionClick (){
   if (questionClick !== rightAnswer) {
     score+=10;
@@ -90,70 +90,13 @@ function questionClick (){
   }
 }
 
-
-
-
-  // currQuest.choices.forEach(function (choice) {
-//   var ansBtn = document.createElement("button");
-//   ansBtn.textContent = choice;
-  // questionBoxEl.appendChild(ansBtn);
+function endGame () {
+  document.getElementById("container");
+  var gameEnd = document.createElement("h1");
+  gameEnd.textContent = "Your final score is:" + score;
+  gameEnd.appendChild("#container");
   
-  // click the buttons and get a response
-  
-  // function quizEnd() {}
-
-  // LOGIC SECTION
-
-  
-
-
-
-  // if (questions.question2[0]) {
-  //   score++;
-  //   alert("Correct! You get one point!");
-  // } else {
-  //   alert("Incorrect! You lose 10 seconds!");
-  //   secondsLeft = -10;
-  // }
-
- 
-
-  // if (questions.question3[2]) {
-  //   score++;
-  //   alert("Correct! You get one point!");
-  // } else {
-  //   alert("Incorrect! You lose 10 seconds!");
-  //   secondsLeft = -10;
-  // }
-
-  
-  // if (questions.question4[0]) {
-  //   score++;
-  //   alert("Correct! You get one point!");
-  // } else {
-  //   alert("Incorrect! You lose 10 seconds!");
-  //   secondsLeft = -10;
-  // }
-
-  
-
-  // if (questions.question5 = false) {
-  //   score++;
-  //   alert("Correct! You get one point!");
-  // } else {
-  //   alert("Incorrect! You lose 10 seconds!");
-  //   secondsLeft = -10;
-  // }
-
-
-// function () {
-
-// }
-
-$("#start-button").on("click", function () {
-  setTime();
-  quizStart();
-});
+}
 
 function storeHighScores () {
   var playerName = document.querySelector("#playerName").nodeValue.trim();
@@ -167,10 +110,21 @@ function storeHighScores () {
   window.localStorage.setItem("highScores", JSON.stringify(hiScores));
 }
 
-function endGame () {
-  document.getElementById("container");
-  var gameEnd = document.createElement("h1");
-  gameEnd.textContent = "Your final score is:" + score;
-  gameEnd.appendChild("#container");
+
+  // currQuest.choices.forEach(function (choice) {
+//   var ansBtn = document.createElement("button");
+//   ansBtn.textContent = choice;
+  // questionBoxEl.appendChild(ansBtn);
   
-}
+  // click the buttons and get a response
+  
+
+
+$("#start-button").on("click", function () {
+  setTime();
+  quizStart();
+});
+
+
+
+
