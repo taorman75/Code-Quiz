@@ -69,7 +69,9 @@ var currQuest = questions[qIndex];
     questionBoxEl.appendChild(ansBtn);
   }
   // currQuest.choices.forEach(function (choice) {
-
+//   var ansBtn = document.createElement("button");
+//   ansBtn.textContent = choice;
+  // questionBoxEl.appendChild(ansBtn);
   }
   // click the buttons and get a response
   
