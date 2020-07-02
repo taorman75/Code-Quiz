@@ -42,7 +42,7 @@ function setTime() {
 
 
 // on click event, "this" is going to equal what is clicked; then you can pull value $(this).val();
-function startGame() {
+function quizStart() {
 var currQuest = questions[qIndex];
   
   quizIntroEl.classList.add("hide");
@@ -124,7 +124,7 @@ var currQuest = questions[qIndex];
 
 $("#start-button").on("click", function () {
   setTime();
-  startGame();
+  quizStart();
 });
 
 function storeHighScores () {
