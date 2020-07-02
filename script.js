@@ -1,7 +1,21 @@
 var score = 0;
 var startBtn = document.getElementById("#start-button");
 var timeEl = document.querySelector("#timer");
-
+var quizIntroEl = document.getElementById("quiz-intro");
+var questionBoxEl = document.getElementById("question-box");
+var questions = [
+  {
+    title: "Q1",
+    choices: ["1", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    title: "Q2",
+    choices: ["2", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+]
+var qIndex = 0;
 
 function setTime() {
   
@@ -24,25 +38,25 @@ function setTime() {
 
 // on click event, "this" is going to equal what is clicked; then you can pull value $(this).val();
 function startGame() {
+var currQuest = questions[qIndex]
+  
+  quizIntroEl.classList.add('hide');
+  // populate the box with Question 1 and choices (which need to be buttons)
+  var qTitle = document.createElement("h1");
+  qTitle.innerHTML = questions[qIndex].title
+  questionBoxEl.appendChild(qTitle)
+  currQuest.choices.forEach(function (choice) {
+    
+    var ansBtn = document.createElement("button");
+    ansBtn.textContent = questions[qIndex];
+    ansBtn.appendChild(qTitle);
+
+  })
+  // click the buttons and get a response
+  
   
 
-  var questions = {
-    "Question 1 - Which brackets are used to enclose an array?": ["Curly", "Square", "Angled", "Squiggly"],
-
-    "Question 2 - What does CSS stand for?": [
-      "Cascading Style Sheets",
-      "Computer Science Styles",
-      "Crashing Style Sections",
-      "Computer Style Selections",
-    ],
-
-    "Question 3 - Which of the following is not an object?": ["Array", "Boolean", "Prototypes", "Method"],
-
-    "Question 4 - Which type of page will a web browser generally seek first?": ["Index", "About Me", "Home", "Return"],
-
-    "Question 5: True or false - NULL and UNDEFINED mean the same thing.": false,
-  };
-
+  
   
 
   if (questions.question1[1]) {

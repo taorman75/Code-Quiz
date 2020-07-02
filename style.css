@@ -34,3 +34,8 @@
     background-color: darkgreen;
     padding: 5px;
 }
+
+.hide {
+    display: none;
+}
+
