@@ -74,6 +74,7 @@ function endGame () {
   var gameEnd = document.createElement("h1");
   gameEnd.textContent = "Game Over! Your final score is: " + score;
   questionBoxEl.appendChild(gameEnd);
+  clearInterval(timerInterval);
   
   
 }

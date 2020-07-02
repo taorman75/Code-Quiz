@@ -25,7 +25,6 @@
     text-align: center;
     margin: 200px;
     padding: 30px 0px 50px 0px;
-    /* position: relative; */
 }
 
 #container button {
@@ -48,3 +47,14 @@
     display: none;
 }
 
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: lemonchiffon;
+    }
+    #container {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: auto;
+        padding: 10px 0px 10px 0px; 
+    }
+}
