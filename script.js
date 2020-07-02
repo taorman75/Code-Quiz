@@ -3,37 +3,47 @@ var startBtn = document.getElementById("#start-button");
 var timeEl = document.querySelector("#timer");
 var quizIntroEl = document.getElementById("quiz-intro");
 var questionBoxEl = document.getElementById("question-box");
+
 var questions = [
   {
-    title: "Q1",
-    choices: ["A", "B", "C", "D"],
-    answer: "A"
+    title: "Which brackets are used to enclose an array?",
+    choices: ["Square", "Curly", "Round", "Squiggly"],
+    answer: "Square"
   },
   {
-    title: "Q2",
-    choices: ["E", "F", "G", "H"],
-    answer: "F"
+    title: "What does the C stand for in CSS?",
+    choices: ["Computer", "Cascading", "Crashing", "Concatenate"],
+    answer: "Cascading"
   },
   {
-    title: "Q3",
-    choices: ["J", "K", "L", "M"],
+    title: "Which of the following cannot be part of an object?",
+    choices: ["Array", "Boolean", "String", "Prototype"],
     answer: "M"
+  },
+  {
+    title: "What HTML page name will most web browsers seek first?",
+    choices: ["Home", "Index", "About Me", "First"],
+    answer: "Index"
+  },
+  {
+    title: "Which of the following are not JavaScript conditional statements?",
+    choices: ["if", "else", "get", "switch"],
+    answer: "get"
   }
+];
 
-]
 var qIndex = 0;
 
 function setTime() {
   
   var secondsLeft = 60;
-  // console.log("Ok cool");
-
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
     // console.log("Hello world");
     if (secondsLeft === 0) {
-      quizEnd();
+      clearInterval(timerInterval);
+    alert("Time is up!");
     }
   }, 1000);
 }
@@ -51,7 +61,8 @@ var currQuest = questions[qIndex];
   qTitle.textContent = questions[qIndex].title;
   questionBoxEl.appendChild(qTitle);
 
-  for (i=0; i < questions.choices.length; i++) {
+
+  for (i=0; i < questions[qIndex].choices.length; i++) {
     var ansBtn = document.createElement("button");
     ansBtn.textContent = questions[qIndex].choices[i];
     console.log(questions[qIndex].choices[i]);
@@ -62,13 +73,9 @@ var currQuest = questions[qIndex];
   }
   // click the buttons and get a response
   
-  function quizEnd() {
-    clearInterval(timerInterval);
-    alert("Time is up!");
-  }
+  // function quizEnd() {}
 
-  
-  
+  // LOGIC SECTION
 
   // if (questions.question1[1]) {
   //   score++;
