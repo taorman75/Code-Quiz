@@ -33,8 +33,7 @@ function setTime() {
     timeEl.textContent = secondsLeft;
     // console.log("Hello world");
     if (secondsLeft === 0) {
-      clearInterval(timerInterval);
-      alert("Time is up!");
+      quizEnd();
     }
   }, 1000);
 }
@@ -51,18 +50,22 @@ var currQuest = questions[qIndex];
   var qTitle = document.createElement("h1");
   qTitle.textContent = questions[qIndex].title;
   questionBoxEl.appendChild(qTitle);
-  currQuest.choices.forEach(function (choice) {
-    
-    var ansBtn = document.createElement("button");
-    ansBtn.textContent = questions[qIndex].choices;
-    ansBtn.appendChild(qTitle);
-    console.log("Yay");
-    
 
-   })
+  for (i=0; i < questions.choices.length; i++) {
+    var ansBtn = document.createElement("button");
+    ansBtn.textContent = questions[qIndex].choices[i];
+    console.log(questions[qIndex].choices[i]);
+    questionBoxEl.appendChild(ansBtn);
+  }
+  // currQuest.choices.forEach(function (choice) {
+
+  }
   // click the buttons and get a response
   
-  
+  function quizEnd() {
+    clearInterval(timerInterval);
+    alert("Time is up!");
+  }
 
   
   
@@ -113,7 +116,7 @@ var currQuest = questions[qIndex];
   //   alert("Incorrect! You lose 10 seconds!");
   //   secondsLeft = -10;
   // }
-}
+
 
 // function () {
 
@@ -125,7 +128,15 @@ $("#start-button").on("click", function () {
 });
 
 function storeHighScores () {
-  
+  var playerName = document.querySelector("#playerName").nodeValue.trim();
+
+  var finalScore = {
+    score: score,
+    name: playerName
+  }
+  var hiScores = JSON.parse(window.localStorage.getItem("High Scores")) || [];
+  hiScores.push(finalScore);
+  window.localStorage.setItem("High Scores", JSON.stringify(hiScores));
 }
 
 function endGame () {
