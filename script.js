@@ -18,7 +18,7 @@ var questions = [
   {
     title: "Which of the following cannot be part of an object?",
     choices: ["Array", "Boolean", "String", "Prototype"],
-    answer: "M"
+    answer: "Prototype"
   },
   {
     title: "What HTML page name will most web browsers seek first?",
@@ -33,7 +33,7 @@ var questions = [
 ];
 
 var qIndex = 0;
-var rightAnswer = questions[qIndex].answer;
+
 
 var secondsLeft = 60;
 
@@ -52,8 +52,10 @@ function setTime() {
 
 function questionClick (){
   //console.log(this.value);
-  
+  var rightAnswer = questions[qIndex].answer;
   if (this.value === rightAnswer) {
+    console.log(questions[qIndex].answer);
+    
     score += 10;
     alert("Correct! You get ten points!");
     qIndex++;
