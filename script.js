@@ -33,6 +33,8 @@ var questions = [
 ];
 
 var qIndex = 0;
+var rightAnswer = questions[qIndex].answer;
+
 
 function setTime() {
   
@@ -48,7 +50,9 @@ function setTime() {
   }, 1000);
 }
 
-
+// function checkAnswer () {
+//   for ()
+// }
 
 
 // on click event, "this" is going to equal what is clicked; then you can pull value $(this).val();
@@ -63,29 +67,44 @@ var currQuest = questions[qIndex];
 
 
   for (i=0; i < questions[qIndex].choices.length; i++) {
+    // debugger;
     var ansBtn = document.createElement("button");
     ansBtn.textContent = questions[qIndex].choices[i];
+    ansBtn.setAttribute("value", questions[qIndex].choices[i]);
     console.log(questions[qIndex].choices[i]);
     questionBoxEl.appendChild(ansBtn);
   }
+  ansBtn.onclick(questionClick); // says "ansBtn.onclick is not a function"
+  ansBtn.onclick(console.log("yay"));
+  
+
+}
+
+function questionClick (){
+  if (questionClick !== rightAnswer) {
+    score+=10;
+    alert("Correct! You get ten points!");
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft = -10;
+  }
+}
+
+
+
+
   // currQuest.choices.forEach(function (choice) {
 //   var ansBtn = document.createElement("button");
 //   ansBtn.textContent = choice;
   // questionBoxEl.appendChild(ansBtn);
-  }
+  
   // click the buttons and get a response
   
   // function quizEnd() {}
 
   // LOGIC SECTION
 
-  // if (questions.question1[1]) {
-  //   score++;
-  //   alert("Correct! You get one point!");
-  // } else {
-  //   alert("Incorrect! You lose 10 seconds!");
-  //   secondsLeft = -10;
-  // }
+  
 
 
 
@@ -143,11 +162,15 @@ function storeHighScores () {
     score: score,
     name: playerName
   }
-  var hiScores = JSON.parse(window.localStorage.getItem("High Scores")) || [];
+  var hiScores = JSON.parse(window.localStorage.getItem("highScores")) || [];
   hiScores.push(finalScore);
-  window.localStorage.setItem("High Scores", JSON.stringify(hiScores));
+  window.localStorage.setItem("highScores", JSON.stringify(hiScores));
 }
 
 function endGame () {
+  document.getElementById("container");
+  var gameEnd = document.createElement("h1");
+  gameEnd.textContent = "Your final score is:" + score;
+  gameEnd.appendChild("#container");
   
 }
