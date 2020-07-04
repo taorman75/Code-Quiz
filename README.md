@@ -8,6 +8,6 @@ At the end, the player may elect to put their name in to the "high scores" list.
 
 https://taorman75.github.io/Code-Quiz/
 
-![quiz screen shot](/Code-Quiz/codequiz.jpeg?raw=true)
+![quiz screen shot](//https://github.com/taorman75/Code-Quiz/blob/master/codequiz.jpeg)
 
 *Author - Tana Orman (HTML, JS, CSS)*
