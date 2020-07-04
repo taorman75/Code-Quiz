@@ -111,5 +111,5 @@ $("#start-button").on("click", function () {
   quizStart();
 });
 
-
+document.getElementById("highScores").onclick = alert(hiScores);
 
