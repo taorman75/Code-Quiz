@@ -3,6 +3,8 @@ var startBtn = document.getElementById("#start-button");
 var timeEl = document.querySelector("#timer");
 var quizIntroEl = document.getElementById("quiz-intro");
 var questionBoxEl = document.getElementById("question-box");
+var qIndex = 0;
+var secondsLeft = 60;
 
 var questions = [
   {
@@ -32,10 +34,6 @@ var questions = [
   }
 ];
 
-var qIndex = 0;
-
-
-var secondsLeft = 60;
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -43,96 +41,69 @@ function setTime() {
     timeEl.textContent = secondsLeft;
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-    }
-  }, 1000);
-}
+    }}, 1000);}
 
 
-function questionClick (){
-  
-  var rightAnswer = questions[qIndex].answer;
-  if (this.value === rightAnswer) {
-    
-    
-    score += 10;
-    alert("Correct! You get ten points!");
-    qIndex++;
-   
-  } else {
-    alert("Incorrect! You lose 10 seconds!");
-    secondsLeft -= 10;
-    qIndex++;
-    
-  }
-  
-  questionBoxEl.innerHTML = "";
-  getQuestion();
-}
-
-function endGame () {
-  document.getElementById("question-box");
-  var gameEnd = document.createElement("h1");
-  gameEnd.textContent = "Game Over! Your final score is: " + score;
-  questionBoxEl.appendChild(gameEnd);
-  clearInterval(timerInterval);
-  
-  
-}
+function quizStart() {
+  quizIntroEl.classList.add("hide");
+  getQuestion();}
 
 function getQuestion() {
   var currQuest = questions[qIndex];
   if (qIndex < questions.length) {
-  // populate the box with Question 1 and choices (which need to be buttons)
   var qTitle = document.createElement("h1");
   qTitle.textContent = questions[qIndex].title;
   questionBoxEl.appendChild(qTitle);
-
   currQuest.choices.forEach(function (i) {
-    console.log(i);
-    
     var ansBtn = document.createElement("button");
     ansBtn.textContent = i;
     ansBtn.setAttribute("value", i);
     ansBtn.setAttribute("class", "answer-button");
     questionBoxEl.appendChild(ansBtn);
     ansBtn.onclick = questionClick;
-  })
-} else {
-  endGame();
-}
-}
+  })} else {
+  endGame();}}
 
-
-// on click event, "this" is going to equal what is clicked; then you can pull value $(this).val();
-function quizStart() {
-  quizIntroEl.classList.add("hide");
-  getQuestion();
-}
-// Logic
-
-
-
-
-function storeHighScores () {
-  var playerName = document.querySelector("#playerName").nodeValue.trim();
-
-  var finalScore = {
-    score: score,
-    name: playerName
+function questionClick (){
+  var rightAnswer = questions[qIndex].answer;
+  if (this.value === rightAnswer) {
+    score += 10;
+    alert("Correct! You get ten points!");
+    qIndex++; 
+  } else {
+    alert("Incorrect! You lose 10 seconds!");
+    secondsLeft -= 10;
+    qIndex++;
   }
-  var hiScores = JSON.parse(window.localStorage.getItem("highScores")) || [];
+    questionBoxEl.innerHTML = "";
+    getQuestion();}
+
+function endGame () {
+  document.getElementById("question-box");
+  var gameEnd = document.createElement("h1");
+  gameEnd.textContent = "Game Over! Your final score is: " + score;
+  questionBoxEl.appendChild(gameEnd);
+  var submitScore = document.createElement("button");
+  submitScore.textContent = "Would you like to save your score?";
+  questionBoxEl.appendChild(submitScore);
+  submitScore.onclick = saveScore;
+}
+
+function saveScore () {
+  document.getElementById("question-box");
+  var playerName = document.createElement("form");
+  playerName.textContent = prompt("Please enter your name");
+  var playerScore = score;
+  console.log(playerName);
+  console.log(playerScore);
+  var finalScore = {
+    name: playerName,
+    score: playerScore
+  }
+  var hiScores = JSON.parse(window.localStorage.getItem("highScores"));
   hiScores.push(finalScore);
   window.localStorage.setItem("highScores", JSON.stringify(hiScores));
 }
-
-
-  // currQuest.choices.forEach(function (choice) {
-//   var ansBtn = document.createElement("button");
-//   ansBtn.textContent = choice;
-  // questionBoxEl.appendChild(ansBtn);
-  
-  // click the buttons and get a response
-  
 
 
 $("#start-button").on("click", function () {
